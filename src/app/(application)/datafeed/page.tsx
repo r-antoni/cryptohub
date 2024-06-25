@@ -18,7 +18,7 @@ useEffect (()=>{
       {store.coins.map((coin:any) => {
         return(
           <div key={coin.id}>
-            <Link href = {`/tracker/${coin.id}`}>
+            <Link href = {`/datafeed/${coin.id}`}>
               {coin.name}
             </Link>
           </div>

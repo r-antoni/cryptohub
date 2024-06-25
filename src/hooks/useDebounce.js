@@ -1,5 +1,5 @@
-export default function debounce(func: Function, wait: number, immediate:any) {
-	let timeout: any;
+export default function debounce(func, wait, immediate) {
+	let timeout;
 	return function() {
 		let context = this, args = arguments;
 		let later = function() {

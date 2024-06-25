@@ -19,13 +19,12 @@ const trendingStore = create((set:any) => ({
         const {query, trendingCoins} = trendingStore.getState()
         if (query.length > 2) {
             const res = await axios.get(`https://api.coingecko.com/api/v3/search?query=${query}`)
-        const coins = res.data.coins.map((coin:any) => {
+            const coins = res.data.coins.map((coin:any) => {
             return {
                 name: coin.name,
                 image: coin.large,
                 id: coin.id,
-                price: coin.item.data.price,
-                change: coin.item.data.price_change_percentage_24h.usd,
+
             }
         })
             set({coins})
