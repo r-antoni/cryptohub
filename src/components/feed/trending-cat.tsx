@@ -1,8 +1,10 @@
-import React from 'react'
+"use client"
 
-const TrendingCat = () => {
+const TrendingCat = ({cat}:any) => {
   return (
-    <div>TrendingCat</div>
+   <>
+    
+   </>
   )
 }
 

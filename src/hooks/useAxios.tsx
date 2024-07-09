@@ -7,10 +7,10 @@ const useAxios = (param:any) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("")
 
-    const fetchData = async (param:"") => {
+    const fetchData = async (param:string) => {
         try {
             setLoading(true)
-            const res = await axios.get(`https://api.coingecko.com/api/v3/${param}`);
+            const res = await axios.get(param);
             setResponse(res.data)
         } catch (error) {
             setError(JSON.stringify(error))

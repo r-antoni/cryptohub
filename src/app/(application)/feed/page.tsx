@@ -1,15 +1,21 @@
-import Markets from '@/components/feed/markets'
+import DefiMarket from '@/components/feed/defi-market'
+import GlobalMarket from '@/components/feed/global-market'
 import Trending from '@/components/feed/trending'
 
 type Props = {}
 
 const Feed = (props: Props) => {
   return (
-    <div>
+    <>
       Feed
-      <Trending />
-      <Markets />
-    </div>
+      <section>
+        <Trending />
+      </section>
+      <section>
+        <GlobalMarket />
+        <DefiMarket />
+      </section>   
+    </>
   )
 }
 
