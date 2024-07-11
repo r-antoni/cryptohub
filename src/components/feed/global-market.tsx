@@ -1,19 +1,41 @@
 "use client"
 import useAxios from '@/hooks/useAxios'
-
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { percentageFormat } from '@/lib/utils/percentage'
+import { currencyFormat } from '@/lib/utils/currency'
+import numberFormat from '@/lib/utils/number'
 
 const GlobalMarket = () => {
-    const {response} = useAxios("global")
-    
+    const {response} = useAxios("https://api.coinlore.net/api/global/")
+    console.log(response)
     return (
     <>
-        <div>
-            <h2>Active Cryptocurrencies</h2>
-            <span>{response?.data.active_cryptocurrencies}</span>
-        </div>
-        <div></div>
-        <div></div>
-        <div></div>
+    <Tabs defaultValue="marketcap" className="w-[800px]">
+        <TabsList>
+            <TabsTrigger value="marketcap">Total Marketcap</TabsTrigger>
+            <TabsTrigger value="volume">Total Volume 24H</TabsTrigger>
+            <TabsTrigger value="btcd">Bitcoin Dominance</TabsTrigger>
+            <TabsTrigger value="ethd">Ethereum Dominance</TabsTrigger>
+        </TabsList>
+        <TabsContent value="marketcap">
+            <div>
+                {currencyFormat(response?.[0].total_mcap)}
+                {percentageFormat(parseFloat(response?.[0].mcap_change))}
+            </div>
+        </TabsContent>
+        <TabsContent value="volume">
+            <div>
+                {currencyFormat(response?.[0].total_volume)}
+                {percentageFormat(parseFloat(response?.[0].volume_change))}
+            </div>   
+        </TabsContent>
+        <TabsContent value="btcd">
+            {percentageFormat(parseFloat(response?.[0].btc_d))}
+        </TabsContent>
+        <TabsContent value="ethd">
+            {percentageFormat(parseFloat(response?.[0].eth_d))}
+        </TabsContent>
+    </Tabs>
     </>
   )
 }

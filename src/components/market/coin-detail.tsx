@@ -25,7 +25,7 @@ const CoinDetail = () => {
             <span></span>
         </section>
         <section>
-
+            <p className="mt-5 [&>a]:text-blue-400 [&>a]:underline" dangerouslySetInnerHTML={{ __html: response.description.en}}></p>
         </section>
     </div>
   )
