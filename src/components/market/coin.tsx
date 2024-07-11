@@ -7,7 +7,7 @@ import Link from 'next/link'
 const Coin = ({coin}:any) => {
   return (
     <>
-    <Link href={`/feed/${coin.id}`}>
+    <Link href={`/market/${coin.id}`}>
         <div className='grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3'>
             <div className='flex gap-2'>
                 <span>{coin.market_cap_rank}.</span>

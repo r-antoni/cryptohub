@@ -1,6 +1,5 @@
 "use client"
 import useAxios from "@/hooks/useAxios"
-import Image from "next/image"
 import { useParams } from "next/navigation"
 
 const CoinDetail = () => {
@@ -12,22 +11,32 @@ const CoinDetail = () => {
     }
 
     return (
-    <div className="">
-        <section className="flex">
+    <>
+        {/* <section className="flex">
             <span>{response.market_cap_rank}.</span>
             <img src={response.image.small} alt={response.name} />
             <h3>{response.name}</h3>
         </section>
         <section>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+            <div>
+                <h3>Website</h3>
+                <span>{response.links.homepage.[0]}</span>
+            </div>
+            <div>
+                <h3>All Time High</h3>
+                <span>{response.ath.usd}</span>
+                <span>{response.ath_change_percentage.usd}</span>
+            </div>
+            <div>
+                <h3>All Time Low</h3>
+                <span>{response.atl.usd}</span>
+                <span>{response.atl_change_percentage.usd}</span>
+            </div>
         </section>
         <section>
             <p className="mt-5 [&>a]:text-blue-400 [&>a]:underline" dangerouslySetInnerHTML={{ __html: response.description.en}}></p>
-        </section>
-    </div>
+        </section> */}
+    </>
   )
 }
 
