@@ -2,35 +2,58 @@
 
 import useAxios from "@/hooks/useAxios"
 import { useParams } from "next/navigation"
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Filler,
+  Legend,
+} from 'chart.js';
+import { Line } from 'react-chartjs-2';
+import moment from "moment";
+
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Filler,
+  Legend
+);
+
 
 const CoinChart = () => {
-  const {id} = useParams()
-  const {response} = useAxios(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=30`)
-  const chartData = response?.prices.map(value => ({x: value[1], y: value[0]}))
+  const { id } = useParams();
+  const { response } = useAxios(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=7`);
+  const coinChartData = response?.prices.map(value => ({ x: value[0], y: value[1].toFixed(2) }));
+  
+  const options = {
+    responsive: true
+  }
+  const data = {
+    labels: coinChartData?.map(value => moment(value.x).format('MMM DD')),
+    datasets: [
+      {
+        fill: true,
+        label: id.toUpperCase(),
+        data: coinChartData?.map(value => value.y),
+        borderColor: 'rgb(53, 162, 235)',
+        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+      }
+    ]
+  }
+
   return (
-    <div className="w-[1000px] h-[500px]">
-      <ResponsiveContainer width="100%" height="100%">
-        <AreaChart
-          width={500}
-          height={400}
-          data={chartData}
-          margin={{
-            top: 10,
-            right: 30,
-            left: 0,
-            bottom: 0,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="y" />
-          <YAxis />
-          <Tooltip />
-          <Area type="monotone" dataKey="x" stroke="#8884d8" fill="#8884d8" />
-        </AreaChart>
-      </ResponsiveContainer>
+    <div>
+      <Line options={options} data={data} />
     </div>
-    
   )
 }
 

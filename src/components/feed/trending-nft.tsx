@@ -1,4 +1,4 @@
-"use client"
+
 import { percentageFormat } from '@/lib/utils/percentage'
 
 const TrendingNFT = ({nft}:any) => {

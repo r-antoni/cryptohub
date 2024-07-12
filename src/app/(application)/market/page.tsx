@@ -4,10 +4,8 @@ import React from 'react'
 const Market = () => {
   return (
     <div>
-        Cryptocurrencies Market
-        <div>
-            <Markets />
-        </div>
+        <h2>Cryptocurrency Markets</h2>
+        <Markets />
     </div>
   )
 }

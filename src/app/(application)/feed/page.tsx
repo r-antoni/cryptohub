@@ -4,10 +4,9 @@ import Trending from '@/components/feed/trending'
 
 type Props = {}
 
-const Feed = (props: Props) => {
+const Feed = () => {
   return (
     <>
-      Feed
       <section>
         <Trending />
       </section>

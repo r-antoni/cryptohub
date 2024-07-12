@@ -1,4 +1,4 @@
-import { currencyFormat } from "@/lib/utils/currency"
+
 import { percentageFormat } from "@/lib/utils/percentage"
 
 const TrendingCoin = ({coin}:any) => {

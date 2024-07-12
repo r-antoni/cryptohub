@@ -3,11 +3,9 @@ import useAxios from '@/hooks/useAxios'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { percentageFormat } from '@/lib/utils/percentage'
 import { currencyFormat } from '@/lib/utils/currency'
-import numberFormat from '@/lib/utils/number'
 
 const GlobalMarket = () => {
     const {response} = useAxios("https://api.coinlore.net/api/global/")
-    console.log(response)
     return (
     <>
     <Tabs defaultValue="marketcap" className="w-[800px]">
@@ -19,13 +17,13 @@ const GlobalMarket = () => {
         </TabsList>
         <TabsContent value="marketcap">
             <div>
-                {currencyFormat(response?.[0].total_mcap)}
+                {currencyFormat(parseFloat(response?.[0].total_mcap))}
                 {percentageFormat(parseFloat(response?.[0].mcap_change))}
             </div>
         </TabsContent>
         <TabsContent value="volume">
             <div>
-                {currencyFormat(response?.[0].total_volume)}
+                {currencyFormat(parseFloat(response?.[0].total_volume))}
                 {percentageFormat(parseFloat(response?.[0].volume_change))}
             </div>   
         </TabsContent>
