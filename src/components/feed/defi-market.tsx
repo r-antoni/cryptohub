@@ -6,7 +6,6 @@ import { percentageFormat } from "@/lib/utils/percentage"
 
 const DefiMarket = () => {
   const {response} = useAxios("https://api.coingecko.com/api/v3/global/decentralized_finance_defi")
-  console.log(response)
   return (
    <div>
       <div>

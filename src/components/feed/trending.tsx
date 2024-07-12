@@ -10,6 +10,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import TrendingCategories from './trending-categories'
 
 
 
@@ -30,10 +31,11 @@ const Trending = () => {
             )}
         </CardContent>
       </Card>
+      {/* Trending NFTs */}
       <Card>
         <CardHeader>
           <CardTitle>Trending Coins</CardTitle>
-          <CardDescription>Latest trending coin in the last 24H</CardDescription>
+          <CardDescription>Latest trending NFTs in the last 24H</CardDescription>
         </CardHeader>
         <CardContent>
         {response && response.nfts.map((nft:any) => 
@@ -41,14 +43,15 @@ const Trending = () => {
             )}
         </CardContent>
       </Card>
+      {/* Trending Categories */}
       <Card>
         <CardHeader>
-          <CardTitle>Trending Coins</CardTitle>
-          <CardDescription>Latest trending coin in the last 24H</CardDescription>
+          <CardTitle>Trending Categories</CardTitle>
+          <CardDescription>Latest trending cryptocurrency categories in the last 24H</CardDescription>
         </CardHeader>
         <CardContent>
-        {response && response.coins.map((coin:any) => 
-                <TrendingCoin key={coin.item.coin_id} coin={coin.item} />
+        {response && response.categories.map((cat:any) => 
+                <TrendingCategories key={cat.id} cat={cat} />
             )}
         </CardContent>
       </Card>
