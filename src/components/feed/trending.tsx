@@ -1,21 +1,27 @@
 "use client"
-import useAxios from '@/hooks/useAxios'
-import TrendingCoin from './trending-coin'
-import TrendingNFT from './trending-nft'
+import trendingStore from '@/lib/stores/trendingStore'
+import Link from 'next/link'
+import { useEffect } from 'react'
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
 import TrendingCategories from './trending-categories'
-
+import TrendingCoin from './trending-coin'
+import TrendingNFT from './trending-nft'
 
 
 const Trending = () => {
-    const {response} = useAxios("https://api.coingecko.com/api/v3/search/trending")
+  const store = trendingStore((state:any)=> state)
+
+  useEffect (()=>{
+    store.fetchTrending()
+    }, [])
+
+    console.log(store)
 
   return (
     <div className='grid-cols-2 justify-center'>
@@ -26,35 +32,35 @@ const Trending = () => {
           <CardDescription>Latest trending coin in the last 24H</CardDescription>
         </CardHeader>
         <CardContent>
-        {response && response.coins.map((coin:any) => 
-                <TrendingCoin key={coin.item.coin_id} coin={coin.item} />
+        {store.coins.map((coin:any) => 
+                <TrendingCoin key={coin.coin_id} coin={coin} />
             )}
         </CardContent>
       </Card>
-      {/* Trending NFTs */}
+      {/* Trending NFTs
       <Card>
         <CardHeader>
           <CardTitle>Trending Coins</CardTitle>
           <CardDescription>Latest trending NFTs in the last 24H</CardDescription>
         </CardHeader>
         <CardContent>
-        {response && response.nfts.map((nft:any) => 
+        {store.nfts.map((nft:any) => 
                 <TrendingNFT key={nft.id} nft={nft} />
             )}
         </CardContent>
-      </Card>
+      </Card> */}
       {/* Trending Categories */}
-      <Card>
+      {/* <Card>
         <CardHeader>
           <CardTitle>Trending Categories</CardTitle>
           <CardDescription>Latest trending cryptocurrency categories in the last 24H</CardDescription>
         </CardHeader>
         <CardContent>
-        {response && response.categories.map((cat:any) => 
+        {store.categories.map((cat:any) => 
                 <TrendingCategories key={cat.id} cat={cat} />
             )}
         </CardContent>
-      </Card>
+      </Card> */}
   
     </div>
   )

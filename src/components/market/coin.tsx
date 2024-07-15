@@ -2,6 +2,7 @@
 import { currencyFormat } from '@/lib/utils/currency'
 import numberFormat from '@/lib/utils/number'
 import { percentageFormat } from '@/lib/utils/percentage'
+import Image from 'next/image'
 import Link from 'next/link'
 
 const Coin = ({coin}:any) => {
@@ -9,9 +10,9 @@ const Coin = ({coin}:any) => {
     <>
     <Link href={`/market/${coin.id}`}>
         <div className='grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3'>
-            <div className='flex gap-2'>
+            <div className='flex gap-2 items-center'>
                 <span>{coin.market_cap_rank}.</span>
-                <img className='w-6' src={coin.image} alt={coin.name} />
+                <Image src={coin.image} alt={coin.name} width={30} height={30}/>
                 <p>{coin.name}</p>
                 <span>{coin.symbol}</span>
             </div>     
