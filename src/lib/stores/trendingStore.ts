@@ -16,6 +16,7 @@ const trendingStore = create((set:any) => ({
                 image: coin.item.large,
                 price: coin.item.data.price,
                 change: coin.item.data.price_change_percentage_24h.usd,
+                chart: coin.item.data.sparkline
             }
         })
 

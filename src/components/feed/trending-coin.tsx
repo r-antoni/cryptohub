@@ -14,7 +14,7 @@ const TrendingCoin = ({coin}:any) => {
                 <p>{coin.name}</p>
                 <span>{currencyFormat(coin.price)}</span>
                 <span>{percentageFormat(coin.change)}</span>
-                <img src={coin.sparkline} alt="coin sparkline" />
+                <img src={coin.chart} alt={`${coin.name} sparkline`} />
               </div>
           </div>
       </Link>

@@ -21,8 +21,6 @@ const Trending = () => {
     store.fetchTrending()
     }, [])
 
-    console.log(store)
-
   return (
     <div className='grid-cols-2 justify-center'>
         {/* Trending Coins */}
@@ -37,10 +35,10 @@ const Trending = () => {
             )}
         </CardContent>
       </Card>
-      {/* Trending NFTs
+      {/* Trending NFTs */}
       <Card>
         <CardHeader>
-          <CardTitle>Trending Coins</CardTitle>
+          <CardTitle>Trending NFTs</CardTitle>
           <CardDescription>Latest trending NFTs in the last 24H</CardDescription>
         </CardHeader>
         <CardContent>
@@ -48,9 +46,9 @@ const Trending = () => {
                 <TrendingNFT key={nft.id} nft={nft} />
             )}
         </CardContent>
-      </Card> */}
+      </Card>
       {/* Trending Categories */}
-      {/* <Card>
+      <Card>
         <CardHeader>
           <CardTitle>Trending Categories</CardTitle>
           <CardDescription>Latest trending cryptocurrency categories in the last 24H</CardDescription>
@@ -60,7 +58,7 @@ const Trending = () => {
                 <TrendingCategories key={cat.id} cat={cat} />
             )}
         </CardContent>
-      </Card> */}
+      </Card>
   
     </div>
   )

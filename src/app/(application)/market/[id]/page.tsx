@@ -16,10 +16,17 @@ const CryptoDetail = () => {
   if(!store.data) return <></>
   return (
     <>
-      <header>
-        <img src={store.data.image.large}  />
-        <h2>{store.data.name} ({store.data.symbol})</h2>
-      </header>
+      <section className="flex justify-between">
+        <div>
+          <span>{store.data.market_cap_rank}.</span>
+        <img src={store.data.image.small}  />
+        <h2>{store.data.name} ({store.data.symbol.toUpperCase()})</h2>
+        </div>
+        <div>
+          <span>{store.data.market_data.current_price.usd}</span>
+          <span>{store.data.market_data.price_change_percentage_24h}</span>
+        </div>      
+      </section>
         <AreaChart
           width={500}
           height={400}
@@ -37,6 +44,12 @@ const CryptoDetail = () => {
           <Tooltip />
           <Area type="monotone" dataKey="price" stroke="#8884d8" fill="#8884d8" />
         </AreaChart>
+        <section>
+          <div>
+            
+          </div>
+          <div></div>
+        </section>
     </>
   )
 }

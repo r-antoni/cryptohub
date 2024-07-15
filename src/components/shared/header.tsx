@@ -1,7 +1,8 @@
+"use client"
 import Image from "next/image";
-import React from "react";
 import Logo from "../../../public/logo.png"
 import Link from "next/link";
+import searchStore from "@/lib/stores/searchStore";
 
 const styles = {
     header: "flex justify-between items-center w-full h-16 text-white bg-slate-800 px-10 shadow-xl",
@@ -14,6 +15,8 @@ const styles = {
 };
 
 const Header = () => {
+    const store = searchStore()
+    
     return (
         <div className={styles.header}>
             <div className="flex items-center gap-5">
@@ -33,6 +36,7 @@ const Header = () => {
                 </nav>
             </div>
             <div className={styles.connect}>
+            <input className='text-black border-black' type="text" value={store.query} onChange={store.setQuery}/>
                 Connect Wallet
             </div>
         </div>

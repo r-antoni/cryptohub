@@ -6,10 +6,11 @@ const TrendingNFT = ({nft}:any) => {
     <>
         <div>
             <div className='flex gap-5'>         
-                <img src={nft.thumb} alt={nft.name} />
+                <img src={nft.image} alt={nft.name} />
                 <p>{nft.name}</p>
-                <span>{nft.data.floor_price}</span>
-                <span>{percentageFormat(nft.floor_price_24h_percentage_change)}</span>
+                <span>{nft.price}</span>
+                <span>{percentageFormat(nft.change)}</span>
+                <img src={nft.chart} alt={`${nft.name} sparkline`} />
             </div>
         </div>
     </>
