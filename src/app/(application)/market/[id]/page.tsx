@@ -1,4 +1,5 @@
 "use client"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import detailStore from "@/lib/stores/detailStore";
 import marketStore from "@/lib/stores/marketStore";
 import { useParams } from "next/navigation"
@@ -29,7 +30,7 @@ const CryptoDetail = () => {
         </div>      
       </section>
         <AreaChart
-          width={500}
+          width={1000}
           height={400}
           data={store.chartData}
           margin={{
@@ -46,10 +47,75 @@ const CryptoDetail = () => {
           <Area type="monotone" dataKey="price" stroke="#8884d8" fill="#8884d8" />
         </AreaChart>
         <section>
-          <div>
-            
+          <div className="grid grid-cols-4 grid-rows-2">
+              <Card className="w-auto">
+                <CardHeader>
+                  <CardTitle>Website</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {store.data.links.homepage[0]}
+                </CardContent> 
+              </Card>   
+              <Card className="w-auto">
+                <CardHeader>
+                  <CardTitle>Explorer</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {store.data.links.blockchain_site[0]}
+                </CardContent> 
+              </Card>
+              <Card className="w-auto">
+                <CardHeader>
+                  <CardTitle>Circulating Supply</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {store.data.market_data.circulating_supply}
+                </CardContent> 
+              </Card>
+              <Card className="w-auto">
+                <CardHeader>
+                  <CardTitle>Total Supply</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {store.data.market_data.total_supply}
+                </CardContent> 
+              </Card>
+              <Card className="w-auto">
+                <CardHeader>
+                  <CardTitle>All Time High</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {store.data.market_data.ath.usd}
+                </CardContent> 
+              </Card>
+              <Card className="w-auto">
+                <CardHeader>
+                  <CardTitle>All Time Low</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {store.data.market_data.atl.usd}
+                </CardContent> 
+              </Card>
+              <Card className="w-auto">
+                <CardHeader>
+                  <CardTitle>Market Cap</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {store.data.market_data.market_cap.usd}
+                </CardContent> 
+              </Card>
+              <Card className="w-auto">
+                <CardHeader>
+                  <CardTitle>24 Hour Trading Volume</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {store.data.market_data.total_volume.usd}
+                </CardContent> 
+              </Card>
           </div>
-          <div></div>
+          <div>
+            <p className="mt-5 [&>a]:text-blue-400 [&>a]:underline" dangerouslySetInnerHTML={{ __html: store.data.description.en}}></p>
+          </div>
         </section>
     </>
   )

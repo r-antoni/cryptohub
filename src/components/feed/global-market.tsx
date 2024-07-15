@@ -12,10 +12,12 @@ const GlobalMarket = () => {
 
     return (
     <>
+        {/* Global Market */}
         <section>
             Hello
             {store.global?.active_markets}
         </section>
+        {/* DeFi Market */}
         <section>
             Sup bro
             {store.defi.defi_market_cap}
