@@ -1,12 +1,13 @@
 "use client"
 import detailStore from "@/lib/stores/detailStore";
+import marketStore from "@/lib/stores/marketStore";
 import { useParams } from "next/navigation"
 import { useEffect } from "react"
 import { AreaChart, Area, XAxis, YAxis, Tooltip } from 'recharts';
 
 
 const CryptoDetail = () => {
-  const store = detailStore()
+  const store = marketStore()
   const params = useParams()
 
   useEffect(() => {

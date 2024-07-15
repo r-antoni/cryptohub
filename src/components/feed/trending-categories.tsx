@@ -1,5 +1,4 @@
 const TrendingCategories = (cat:any) => {
-  console.log(cat)
   return (
         <div>
             <p>{cat.cat.name}</p>

@@ -1,5 +1,5 @@
 "use client"
-import trendingStore from '@/lib/stores/trendingStore'
+import trendingStore from '@/lib/stores/datafeedStore'
 import Link from 'next/link'
 import { useEffect } from 'react'
 import {
@@ -12,10 +12,11 @@ import {
 import TrendingCategories from './trending-categories'
 import TrendingCoin from './trending-coin'
 import TrendingNFT from './trending-nft'
+import datafeedStore from '@/lib/stores/datafeedStore'
 
 
 const Trending = () => {
-  const store = trendingStore((state:any)=> state)
+  const store = datafeedStore((state:any)=> state)
 
   useEffect (()=>{
     store.fetchTrending()

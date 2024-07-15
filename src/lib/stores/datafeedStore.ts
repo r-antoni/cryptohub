@@ -1,10 +1,12 @@
 import axios from 'axios'
 import { create } from 'zustand'
 
-const trendingStore = create((set:any) => ({
+const datafeedStore = create((set:any) => ({
     coins: [],
     nfts: [],
     categories: [],
+    global: [],
+    defi: [],
     
     fetchTrending: async () => {
         const res = await axios.get("https://api.coingecko.com/api/v3/search/trending")
@@ -44,7 +46,15 @@ const trendingStore = create((set:any) => ({
         })
 
         set({coins, nfts, categories})
+    },
+
+    fetchGlobal: async () => {
+        const [marketRes, defiRes] = await Promise.all([
+            axios.get("https://api.coinlore.net/api/global/"), 
+            axios.get("https://api.coingecko.com/api/v3/global/decentralized_finance_defi")
+        ])
+        set({global:marketRes.data[0], defi:defiRes.data.data})
     }
 }))
 
-export default trendingStore
+export default datafeedStore
