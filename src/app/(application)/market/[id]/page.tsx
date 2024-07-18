@@ -1,10 +1,9 @@
 "use client"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import detailStore from "@/lib/stores/detailStore";
 import marketStore from "@/lib/stores/marketStore";
 import { useParams } from "next/navigation"
 import { useEffect } from "react"
-import { AreaChart, Area, XAxis, YAxis, Tooltip } from 'recharts';
+import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 
 const CryptoDetail = () => {
@@ -18,8 +17,8 @@ const CryptoDetail = () => {
   if(!store.data) return <></>
   return (
     <>
-      <section className="flex justify-between">
-        <div>
+      <section className="flex gap-10 px-10 py-4">
+        <div className="flex">
           <span>{store.data.market_cap_rank}.</span>
         <img src={store.data.image.small}  />
         <h2>{store.data.name} ({store.data.symbol.toUpperCase()})</h2>
@@ -29,9 +28,11 @@ const CryptoDetail = () => {
           <span>{store.data.market_data.price_change_percentage_24h}</span>
         </div>      
       </section>
-        <AreaChart
-          width={1000}
-          height={400}
+
+      <section className="px-20">
+          <AreaChart
+          width={1500}
+          height={500}
           data={store.chartData}
           margin={{
             top: 10,
@@ -40,14 +41,15 @@ const CryptoDetail = () => {
             bottom: 0,
           }}
         >
-          
           <XAxis dataKey="date" />
           <YAxis />
           <Tooltip />
           <Area type="monotone" dataKey="price" stroke="#8884d8" fill="#8884d8" />
-        </AreaChart>
+        </AreaChart>      
+      </section>
+        
         <section>
-          <div className="grid grid-cols-4 grid-rows-2">
+          <div className="grid grid-cols-4 grid-rows-2 px-10 py-4 gap-5">
               <Card className="w-auto">
                 <CardHeader>
                   <CardTitle>Website</CardTitle>

@@ -25,7 +25,7 @@ const searchStore = create((set:any) => ({
             }
         })
             set({coins})
-        }     
+        }   else(set({coins: []}))  
     }, 500, null
     ),
 }))

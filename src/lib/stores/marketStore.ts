@@ -29,13 +29,13 @@ const marketStore = create((set:any) => ({
 
     fetchData: async (id:any) => {
         const [chartRes, detailRes] = await Promise.all([
-            axios.get(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=30`),
+            axios.get(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=7`),
             axios.get(`https://api.coingecko.com/api/v3/coins/${id}`)
         ])
         
         const chartData = chartRes.data.prices.map((price: any) => {
             const [timestamp, p] = price;
-            const date = new Date(timestamp).toLocaleDateString("en-us")
+            const date = new Date(timestamp).toLocaleDateString("en-gb")
 
             return {
                 date: date,

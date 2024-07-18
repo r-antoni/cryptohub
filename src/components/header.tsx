@@ -1,26 +1,26 @@
 "use client"
 import Image from "next/image";
-import Logo from "../../../public/logo.png"
+import Logo from "../../public/logo.png"
 import Link from "next/link";
-import searchStore from "@/lib/stores/searchStore";
+import Searchbar from "./searchbar";
 
 const styles = {
     header: "flex justify-between items-center w-full h-16 text-white bg-slate-800 px-10 shadow-xl",
     nav: "flex justify-center items-center h-full",
     navWrapper: "flex items-center gap-5 px-5 ",
     navItem: "text-md hover:opacity-80",
-    connect: "bg-blue-500 px-5 py-2 items-center gap-5 text-sm rounded",
+    connect: "bg-blue-500 px-5 py-2 items-center gap-5 text-sm rounded-lg",
     inputWrapper: "flex justify-center items-center bg-slate-500 rounded-md",
     input:"text-sm bg-transparent outline-none",
 };
 
 const Header = () => {
-    const store = searchStore()
-    
     return (
         <div className={styles.header}>
             <div className="flex items-center gap-5">
-                <Image src={Logo} alt="logo" width={180} height={150} />
+                <Link href="/">
+                    <Image src={Logo} alt="logo" width={180} height={150} />
+                </Link> 
                 <nav className={styles.nav}>
                     <ul className={styles.navWrapper}>
                         <li className={styles.navItem}>
@@ -35,8 +35,10 @@ const Header = () => {
                     </ul>
                 </nav>
             </div>
+            <div>
+                <Searchbar />
+            </div>
             <div className={styles.connect}>
-            <input className='text-black border-black' type="text" value={store.query} onChange={store.setQuery}/>
                 Connect Wallet
             </div>
         </div>
