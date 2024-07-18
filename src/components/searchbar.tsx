@@ -9,7 +9,7 @@ const Searchbar = () => {
   const store = searchStore()
 
   return (
-    <div className='absolute top-3 flex flex-col w-[25%] text-black text-sm z-50'>
+    <div className='absolute top-3 flex flex-col gap-3 w-[25%] text-black text-sm z-50'>
       <input className='items-center border border-black focus:outline-none px-4 py-2 rounded-lg' type="text" placeholder='Search coins' value={store.query} onChange={store.setQuery}/>
       {store.coins.length > 0 ?
       <ScrollArea className="bg-slate-400 rounded-lg h-[200px]">
