@@ -19,9 +19,10 @@ const searchStore = create((set:any) => ({
             const res = await axios.get(`https://api.coingecko.com/api/v3/search?query=${query}`)
             const coins = res.data.coins.map((coin:any) => {
             return {
+                id: coin.id,
                 name: coin.name,
                 image: coin.large,
-                id: coin.id,
+                symbol: coin.symbol
             }
         })
             set({coins})

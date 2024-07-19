@@ -48,6 +48,13 @@ const Footer = () => {
                 <Image src={Logo} alt=""/>
               </PopoverContent>
             </Popover>
+            <Popover>
+              <PopoverTrigger>Ethereum</PopoverTrigger>
+              <PopoverContent>
+                <span>Donate Bitcoin</span>
+                <Image src={Logo} alt=""/>
+              </PopoverContent>
+            </Popover>
           </div>
       </section>
     </footer>
