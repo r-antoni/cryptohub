@@ -1,6 +1,4 @@
 "use client"
-import trendingStore from '@/lib/stores/datafeedStore'
-import Link from 'next/link'
 import { useEffect } from 'react'
 import {
   Card,
@@ -16,52 +14,59 @@ import datafeedStore from '@/lib/stores/datafeedStore'
 
 
 const Trending = () => {
-  const store = datafeedStore((state:any)=> state)
+  const store = datafeedStore()
 
   useEffect (()=>{
     store.fetchTrending()
     }, [])
 
   return (
-    <div className='grid-cols-2 justify-center'>
+    <section className='grid grid-rows-3 grid-flow-col gap-5 pt-10 '>
         {/* Trending Coins */}
-        <Card>
-        <CardHeader>
-          <CardTitle>Trending Coins</CardTitle>
-          <CardDescription>Latest trending coin in the last 24H</CardDescription>
-        </CardHeader>
-        <CardContent>
-        {store.coins.map((coin:any) => 
-                <TrendingCoin key={coin.coin_id} coin={coin} />
-            )}
-        </CardContent>
-      </Card>
-      {/* Trending NFTs */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Trending NFTs</CardTitle>
-          <CardDescription>Latest trending NFTs in the last 24H</CardDescription>
-        </CardHeader>
-        <CardContent>
-        {store.nfts.map((nft:any) => 
-                <TrendingNFT key={nft.id} nft={nft} />
-            )}
-        </CardContent>
-      </Card>
-      {/* Trending Categories */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Trending Categories</CardTitle>
-          <CardDescription>Latest trending cryptocurrency categories in the last 24H</CardDescription>
-        </CardHeader>
-        <CardContent>
-        {store.categories.map((cat:any) => 
-                <TrendingCategories key={cat.id} cat={cat} />
-            )}
-        </CardContent>
-      </Card>
-  
-    </div>
+        <div className='row-span-3'>
+          <Card>
+            <CardHeader>
+              <CardTitle>Trending Coins</CardTitle>
+              <CardDescription>Discover the top trending cryptocurrencies on Cryptohub. This list is sorted by coins that are most searched for in the last 3 hours. </CardDescription>
+            </CardHeader>
+            <CardContent>
+            {store.coins.map((coin:any) => 
+                    <TrendingCoin key={coin.coin_id} coin={coin} />
+                )}
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Trending NFTs */}
+        <div className='col-span-2'>
+          <Card>
+            <CardHeader>
+              <CardTitle>Trending NFTs</CardTitle>
+              <CardDescription>Latest trending NFTs in the last 24H</CardDescription>
+            </CardHeader>
+            <CardContent>
+            {store.nfts.map((nft:any) => 
+                    <TrendingNFT key={nft.id} nft={nft} />
+                )}
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Trending Categories */}
+        <div className='row-span-2 col-span-2'>
+          <Card>
+            <CardHeader>
+              <CardTitle>Trending Categories</CardTitle>
+              <CardDescription>Latest trending cryptocurrency categories in the last 24H</CardDescription>
+            </CardHeader>
+            <CardContent>
+            {store.categories.map((cat:any) => 
+                    <TrendingCategories key={cat.id} cat={cat} />
+                )}
+            </CardContent>
+          </Card>
+        </div>
+    </section>
   )
 }
 

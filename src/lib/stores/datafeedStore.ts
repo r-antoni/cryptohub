@@ -44,7 +44,6 @@ const datafeedStore = create((set:any) => ({
                 chart: cat.data.sparkline
             }
         })
-
         set({coins, nfts, categories})
     },
 

@@ -12,9 +12,9 @@ import { Separator } from "./ui/separator"
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col">
+    <footer className="flex flex-col py-5">
       {/* Social */}
-      <section className="flex flex-col justify-center items-center gap-5 py-5">
+      <section className="flex flex-col justify-center items-center gap-5 pb-5">
          <h3 className="font-semibold">Stay in Touch</h3> 
          <Social />
       </section>
@@ -30,7 +30,7 @@ const Footer = () => {
         </div>
         
         <div className="font-medium pt-3">
-          <h3>About Crypto<span className="text-blue-400">Hub</span></h3>
+          <h3>About Cryptohub</h3>
           <Separator />
           <div className="flex flex-col text-sm text-slate-600 pt-3 gap-2">
             <Link href="/">About Us</Link>

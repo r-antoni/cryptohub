@@ -7,11 +7,11 @@ import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'rec
 
 
 const CryptoDetail = () => {
-  const store = marketStore()
+  const store = marketStore((state:any) => state)
   const params = useParams()
 
   useEffect(() => {
-  store.fetchData (params.id)  
+  store.fetchData(params.id)  
   }, [])
 
   if(!store.data) return <></>

@@ -22,7 +22,7 @@ const Searchbar = () => {
         <ScrollArea className="h-[200px]">
         {store.coins.map((coin:any) => {
         return (
-          <Link href={`/market/${coin.id}`}>
+          <Link href={`/market/${coin.id}`} key={coin.id}>
             <div className='flex items-center px-4 py-2 gap-3 hover:bg-slate-300 '>
               <Image src={coin.image} alt={coin.name} width={30} height={20}/>
               <p>{coin.name} <span>({coin.symbol})</span></p>
