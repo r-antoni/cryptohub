@@ -12,8 +12,8 @@ const Searchbar = () => {
   return (
     <div className='w-80'>
       {/* Search Input */}
-      <div className='flex items-center gap-2 h-9 rounded-md px-3 bg-slate-200 text-slate-400 text-sm'>
-        <IoMdSearch size={16} />
+      <div className='flex items-center gap-2 h-9 rounded-md px-3 bg-slate-200 text-slate-600 text-sm'>
+        <IoMdSearch size={18} />
         <input className='focus:outline-none bg-transparent' type="text" placeholder='Search coins' value={store.query} onChange={store.setQuery}/>
       </div>
       {/* Search Result */}
