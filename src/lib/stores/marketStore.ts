@@ -8,7 +8,7 @@ const marketStore = create((set:any) => ({
     data: null,
 
     fetchMarket: async () => {
-        const res = await axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&precision=2")
+        const res = await axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&price_change_percentage=24h&precision=2")
         
         const marketCoins = res.data.map((coin:any) => {
             return{
