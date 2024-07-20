@@ -21,7 +21,7 @@ const GlobalMarket = () => {
         store.fetchGlobal()
     },[])
     return (
-    <section className="flex flex-col justify-center items-center gap-10">
+    <section className="flex flex-col justify-center items-center gap-10 pb-5">
         {/* Global Market Data */}
         {store.global && 
         <div className="grid grid-cols-2 gap-20">    
@@ -48,12 +48,11 @@ const GlobalMarket = () => {
                 </Card>
             </div>
         </div>
-        }
-        
+        }        
         {/* Global Defi Data */}
         {store.defi && 
         <div className="">
-            <Tabs defaultValue="defi" className="flex flex-col items-center justify-center h-24">
+            <Tabs defaultValue="defi" className="flex flex-col items-center justify-center bg-slate-200 pb-2 rounded-lg">
             <TabsList>
                 <TabsTrigger value="defi">De-Fi Total Market Cap</TabsTrigger>
                 <TabsTrigger value="volume">De-Fi Coins 24H Volume</TabsTrigger>
@@ -64,8 +63,8 @@ const GlobalMarket = () => {
             <TabsContent value="defi">{currencyFormat(store.defi.defi_market_cap)}</TabsContent>
             <TabsContent value="volume">{currencyFormat(store.defi.trading_volume_24h)}</TabsContent>
             <TabsContent value="dom">{percentageFormat(store.defi.defi_dominance)}</TabsContent>
-            <TabsContent value="btcd">{percentageFormat(store.global.btc_d)}</TabsContent>
-            <TabsContent value="ethd">{percentageFormat(store.global.eth_d)}</TabsContent>
+            <TabsContent value="btcd">{percentageFormat(store.global?.btc_d)}</TabsContent>
+            <TabsContent value="ethd">{percentageFormat(store.global?.eth_d)}</TabsContent>
             </Tabs>
         </div>}
         

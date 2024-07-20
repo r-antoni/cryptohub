@@ -21,7 +21,7 @@ const Trending = () => {
     }, [])
 
   return (
-    <section className='grid grid-rows-3 grid-flow-col gap-5'>
+    <section className='grid grid-rows-2 grid-flow-col gap-5'>
         {/* Trending Coins */}
         <div className='row-span-3'>
           <Card>
@@ -38,7 +38,7 @@ const Trending = () => {
         </div>
 
         {/* Trending NFTs */}
-        <div className='col-span-2'>
+        <div className='col-span-1'>
           <Card>
             <CardHeader>
               <CardTitle>Trending NFTs</CardTitle>
@@ -53,7 +53,7 @@ const Trending = () => {
         </div>
 
         {/* Trending Categories */}
-        <div className='row-span-2 col-span-2'>
+        <div className='row-span-2 col-span-1'>
           <Card>
             <CardHeader>
               <CardTitle>Trending Categories</CardTitle>

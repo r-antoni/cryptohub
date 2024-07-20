@@ -3,6 +3,6 @@ export function currencyFormat(num:number) {
         style: 'currency',
         currency: "USD",
         minimumFractionDigits: 0,
-        maximumFractionDigits: 2,
+        maximumFractionDigits: 3,
       }).format(num);
     }

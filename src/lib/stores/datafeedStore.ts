@@ -5,8 +5,8 @@ const datafeedStore = create((set:any) => ({
     coins: [],
     nfts: [],
     categories: [],
-    global: [],
-    defi: [],
+    global: null,
+    defi: null,
     
     fetchTrending: async () => {
         const res = await axios.get("https://api.coingecko.com/api/v3/search/trending")
