@@ -4,7 +4,7 @@ type Props = {}
 
 const Swap = (props: Props) => {
   return (
-    <div>Coming soon</div>
+    <div className='h-[50vh]'>Coming soon</div>
   )
 }
 

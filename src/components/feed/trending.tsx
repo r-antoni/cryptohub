@@ -21,7 +21,7 @@ const Trending = () => {
     }, [])
 
   return (
-    <section className='grid grid-rows-3 grid-flow-col gap-5 pt-10 '>
+    <section className='grid grid-rows-3 grid-flow-col gap-5'>
         {/* Trending Coins */}
         <div className='row-span-3'>
           <Card>
