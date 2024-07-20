@@ -20,10 +20,10 @@ const GlobalMarket = () => {
     useEffect(()=>{
         store.fetchGlobal()
     },[])
-    console.log(store.defi)
     return (
     <section className="flex flex-col justify-center items-center gap-10">
         {/* Global Market Data */}
+        {store.global && 
         <div className="grid grid-cols-2 gap-20">    
             <div>
                 <Card>
@@ -32,7 +32,7 @@ const GlobalMarket = () => {
                     <CardDescription>Total crypto market cap, sum of all coins marketcap.</CardDescription>
                     </CardHeader>
                     <CardContent>
-                        {store.global.total_mcap} <span>{percentageFormat(parseFloat(store.global.mcap_change))}</span>
+                        {currencyFormat(store.global.total_mcap)} <span>{percentageFormat(parseFloat(store.global.mcap_change))}</span>
                     </CardContent>
                 </Card>
             </div>
@@ -43,12 +43,15 @@ const GlobalMarket = () => {
                     <CardDescription>Total trading volume for last 24h, sum of 24h volume for all crypto coins.</CardDescription>
                     </CardHeader>
                     <CardContent>
-                        {(store.global.total_volume)} <span>{percentageFormat(parseFloat(store.global.volume_change))}</span>
+                        {currencyFormat(store.global.total_volume)} <span>{percentageFormat(parseFloat(store.global.volume_change))}</span>
                     </CardContent>
                 </Card>
             </div>
         </div>
+        }
+        
         {/* Global Defi Data */}
+        {store.defi && 
         <div className="">
             <Tabs defaultValue="defi" className="flex flex-col items-center justify-center h-24">
             <TabsList>
@@ -58,13 +61,14 @@ const GlobalMarket = () => {
                 <TabsTrigger value="btcd">Bitcoin Dominance</TabsTrigger>
                 <TabsTrigger value="ethd">Ethereum Dominance</TabsTrigger>
             </TabsList>
-            <TabsContent value="defi">{store.defi.defi_market_cap}</TabsContent>
-            <TabsContent value="volume">{store.defi.trading_volume_24h}</TabsContent>
-            <TabsContent value="dom">{store.defi.defi_dominance}</TabsContent>
-            <TabsContent value="btcd">{store.global.btc_d}</TabsContent>
-            <TabsContent value="ethd">{store.global.eth_d}</TabsContent>
+            <TabsContent value="defi">{currencyFormat(store.defi.defi_market_cap)}</TabsContent>
+            <TabsContent value="volume">{currencyFormat(store.defi.trading_volume_24h)}</TabsContent>
+            <TabsContent value="dom">{percentageFormat(store.defi.defi_dominance)}</TabsContent>
+            <TabsContent value="btcd">{percentageFormat(store.global.btc_d)}</TabsContent>
+            <TabsContent value="ethd">{percentageFormat(store.global.eth_d)}</TabsContent>
             </Tabs>
-        </div>
+        </div>}
+        
     </section>
   )
 }

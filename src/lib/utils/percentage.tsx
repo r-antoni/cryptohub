@@ -1,3 +1,7 @@
 export function percentageFormat(num:number) {
-    return  num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') + '%' 
-}
+    return new Intl.NumberFormat('default', {
+      style: 'percent',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 2,
+    }).format(num / 100);
+  }
