@@ -16,7 +16,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 
 const GlobalMarket = () => {
-    const store = datafeedStore()
+    const store = datafeedStore((state:any)=> state)
     useEffect(()=>{
         store.fetchGlobal()
     },[])
