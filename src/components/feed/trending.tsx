@@ -30,7 +30,15 @@ const Trending = () => {
               <CardDescription>Discover the top trending cryptocurrencies on Cryptohub. This list is sorted by coins that are most searched for in the last 3 hours. </CardDescription>
             </CardHeader>
             <CardContent>
-            {store.coins.map((coin:any) => 
+              <div className='grid grid-cols-3 text-slate-600 py-2'>
+                <span className='pl-5'>Name</span>
+                <div className='grid grid-cols-2 px-3'>
+                  <span>Price</span>
+                  <span>24H</span>
+                </div>
+                <span className='pl-5'>7D Change</span>
+              </div>
+              {store.coins.map((coin:any) => 
                     <TrendingCoin key={coin.coin_id} coin={coin} />
                 )}
             </CardContent>
@@ -42,9 +50,17 @@ const Trending = () => {
           <Card>
             <CardHeader>
               <CardTitle>Trending NFTs</CardTitle>
-              <CardDescription>Latest trending NFTs in the last 24H</CardDescription>
+              <CardDescription>Discover the top trending NFTs in all blockchains on Cryptohub. This list is sorted by nfts that are most searched for in the last 24 hours.</CardDescription>
             </CardHeader>
             <CardContent>
+            <div className='grid grid-cols-3 text-slate-600 py-2'>
+                <span className='pl-5'>Name</span>
+                <div className='grid grid-cols-2 px-3'>
+                  <span>Floor Price</span>
+                  <span>24H</span>
+                </div>
+                <span className='pl-5'>7D Change</span>
+              </div>
             {store.nfts.map((nft:any) => 
                     <TrendingNFT key={nft.id} nft={nft} />
                 )}
@@ -54,12 +70,18 @@ const Trending = () => {
 
         {/* Trending Categories */}
         <div className='row-span-2 col-span-1'>
-          <Card>
+          <Card className='pb-4'>
             <CardHeader>
               <CardTitle>Trending Categories</CardTitle>
               <CardDescription>Latest trending cryptocurrency categories in the last 24H</CardDescription>
             </CardHeader>
             <CardContent>
+            <div className='grid grid-cols-4 text-slate-600 py-2 gap-5'>
+                <span className='pl-5'>Name</span>
+                  <span>Market Cap</span>
+                  <span>24H</span>
+                <span className='pl-5'>7D Change</span>
+              </div>
             {store.categories.map((cat:any) => 
                     <TrendingCategories key={cat.id} cat={cat} />
                 )}

@@ -32,7 +32,10 @@ const GlobalMarket = () => {
                     <CardDescription>Total crypto market cap, sum of all coins marketcap.</CardDescription>
                     </CardHeader>
                     <CardContent>
-                        {currencyFormat(store.global.total_mcap)} <span>{percentageFormat(parseFloat(store.global.mcap_change))}</span>
+                        <div className="flex gap-5">
+                             {currencyFormat(store.global.total_mcap)}
+                             <span className={store.global.total_mcap > 0 ? "text-green-400" : "text-red-400"}>{percentageFormat(parseFloat(store.global.mcap_change))}</span>
+                        </div>  
                     </CardContent>
                 </Card>
             </div>
@@ -43,7 +46,10 @@ const GlobalMarket = () => {
                     <CardDescription>Total trading volume for last 24h, sum of 24h volume for all crypto coins.</CardDescription>
                     </CardHeader>
                     <CardContent>
-                        {currencyFormat(store.global.total_volume)} <span>{percentageFormat(parseFloat(store.global.volume_change))}</span>
+                        <div className="flex gap-5">
+                            {currencyFormat(store.global.total_volume)}
+                            <span className={store.global.volume_change > 0 ? "text-green-400" : "text-red-400"}>{percentageFormat(parseFloat(store.global.volume_change))}</span>
+                        </div>   
                     </CardContent>
                 </Card>
             </div>
