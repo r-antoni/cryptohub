@@ -32,13 +32,13 @@ const Markets = () => {
   return (
     <section>
         <div className='grid grid-cols-2 md:grid-cols-3 xl:grid-cols-7 py-2 gap-4 text-sm font-medium text-slate-500'>
-            <span >Name</span> 
-            <span>24H High</span>
-            <span>24H Low</span>
+            <span>Name</span> 
+            <span className='invisible xl:visible'>24H High</span>
+            <span className='invisible xl:visible'>24H Low</span>
             <span className='invisible md:visible'>24H Change</span>
             <span>Current Price</span>
             <span className='invisible xl:visible'>Market Cap</span>
-            <span>24H Volume</span>
+            <span className='invisible xl:visible'>24H Volume</span>
         </div>
         <Separator />
         <div className="py-3">

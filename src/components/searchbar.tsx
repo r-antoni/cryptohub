@@ -10,16 +10,16 @@ const Searchbar = () => {
   const store = searchStore()
 
   return (
-    <div className='w-80'>
+    <div className='w-60 xl:w-80'>
       {/* Search Input */}
       <div className='flex items-center gap-2 h-9 rounded-md px-3 bg-slate-200 text-slate-600 text-sm'>
         <IoMdSearch size={18} />
         <input className='focus:outline-none bg-transparent' type="text" placeholder='Search coins' value={store.query} onChange={store.setQuery}/>
       </div>
       {/* Search Result */}
-      <div className='absolute top-14 bg-slate-200 w-80 text-sm text-black rounded-md'>
+      <div className='absolute top-14 bg-slate-200 w-60 xl:w-80 text-sm text-black rounded-md'>
         {store.coins.length > 0 ?
-        <ScrollArea className="h-[200px]">
+        <ScrollArea className=" h-[100px] xl:h-[200px]">
         {store.coins.map((coin:any) => {
         return (
           <Link href={`/market/${coin.id}`} key={coin.id}>

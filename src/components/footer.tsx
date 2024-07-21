@@ -21,7 +21,7 @@ const Footer = () => {
       <Separator />
       {/* Footer */}
       <section className="flex flex-col xl:flex-row justify-center items-start gap-5 xl:gap-40 py-5">
-        <div className="">
+        <div className="px-3">
           <Image src={Logo} alt="CryptoHub Logo" width={180} height={150} />
           <p className="w-[400px] pl-4 text-sm text-slate-500">
             CryptoHub provides a fundamental analysis of the crypto market. In addition to tracking price, 
@@ -29,10 +29,10 @@ const Footer = () => {
             open-source code development, major events and on-chain metrics.</p>
         </div>
         
-        <div className="font-medium pt-3">
+        <div className="font-medium pt-3 px-5">
           <h3>About Cryptohub</h3>
           <Separator />
-          <div className="flex flex-col text-sm text-slate-600 pt-3 gap-2">
+          <div className="flex flex-col text-sm text-slate-600 pt-3 gap-2 px-1 xl:px-0">
             <Link href="/">About Us</Link>
             <Link href="/">Company Blog</Link>
             <Link href="/">Careers</Link>
@@ -42,10 +42,10 @@ const Footer = () => {
           </div>       
         </div>
         
-        <div className="font-medium pt-3">
+        <div className="font-medium pt-3 px-5">
           <h3>Support</h3>
           <Separator />
-          <div className="flex flex-col text-sm text-slate-600 pt-3 gap-2">
+          <div className="flex flex-col text-sm text-slate-600 pt-3 gap-2 px-1 xl:px-0">
             <Link href="/">Request Form</Link>
             <Link href="/">Help Center</Link>
             <Link href="/">Bug Bounty</Link>
@@ -53,10 +53,10 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="font-medium pt-3">
+        <div className="font-medium pt-3 px-5">
             <h3>Donations</h3>
             <Separator />
-            <div className="flex flex-col items-start text-sm text-slate-600 gap-2 pt-3">
+            <div className="flex flex-col items-start text-sm text-slate-600 gap-2 pt-3 px-1 xl:px-0">
               <Popover >
               <PopoverTrigger>Bitcoin</PopoverTrigger>
               <PopoverContent>

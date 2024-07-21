@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 const TrendingNFT = ({nft}:any) => {
   return (
-    <div className="grid grid-cols-3 items-center px-5 py-2">
+    <div className="grid grid-cols-3 items-center justify-center px-5 py-2">
     <div className="flex items-center gap-3">
       <Image className='rounded-lg' src={nft.image} alt={nft.name} width={60} height={45}/>
       <p>{nft.name}</p>

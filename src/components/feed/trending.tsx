@@ -21,11 +21,11 @@ const Trending = () => {
     }, [])
 
   return (
-    <section className='grid grid-rows-2 grid-flow-col gap-5'>
+    <section className='grid grid-rows-2 grid-flow-col gap-5 px-10'>
         {/* Trending Coins */}
         <div className='row-span-3'>
-          <Card>
-            <CardHeader>
+          <Card className='pl-10'>
+            <CardHeader >
               <CardTitle>Trending Coins</CardTitle>
               <CardDescription>Discover the top trending cryptocurrencies on Cryptohub. This list is sorted by coins that are most searched for in the last 3 hours. </CardDescription>
             </CardHeader>
@@ -47,7 +47,7 @@ const Trending = () => {
 
         {/* Trending NFTs */}
         <div className='col-span-1'>
-          <Card>
+          <Card className='pl-10'>
             <CardHeader>
               <CardTitle>Trending NFTs</CardTitle>
               <CardDescription>Discover the top trending NFTs in all blockchains on Cryptohub. This list is sorted by nfts that are most searched for in the last 24 hours.</CardDescription>
@@ -70,7 +70,7 @@ const Trending = () => {
 
         {/* Trending Categories */}
         <div className='row-span-2 col-span-1'>
-          <Card className='pb-[19px]'>
+          <Card className='pb-[19px] pl-10'>
             <CardHeader>
               <CardTitle>Trending Categories</CardTitle>
               <CardDescription>Latest trending cryptocurrency categories in the last 24H</CardDescription>
