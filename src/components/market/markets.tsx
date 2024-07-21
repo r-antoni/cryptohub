@@ -13,6 +13,7 @@ import {
     PaginationPrevious,
   } from "@/components/ui/pagination"
 import Coin from "./coin"
+import { Separator } from "../ui/separator"
 
 
 const Markets = () => {
@@ -29,17 +30,18 @@ const Markets = () => {
     const currentPosts = store.marketCoins.slice(firstPostIndex, lastPostIndex);
 
   return (
-    <section className='mt-10'>
-        <div className='grid grid-cols-2 md:grid-cols-3 xl:grid-cols-7 gap-3'>
-            <span>Name</span> 
+    <section>
+        <div className='grid grid-cols-2 md:grid-cols-3 xl:grid-cols-7 py-2 gap-4 text-sm font-medium text-slate-500'>
+            <span >Name</span> 
             <span>24H High</span>
             <span>24H Low</span>
             <span className='invisible md:visible'>24H Change</span>
             <span>Current Price</span>
             <span className='invisible xl:visible'>Market Cap</span>
-            <span>Volume</span>
+            <span>24H Volume</span>
         </div>
-        <div>
+        <Separator />
+        <div className="py-3">
         {currentPosts.map((coin:any) => 
                 <Coin key={coin.id} coin={coin}/>
             )}

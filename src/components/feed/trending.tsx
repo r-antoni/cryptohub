@@ -70,7 +70,7 @@ const Trending = () => {
 
         {/* Trending Categories */}
         <div className='row-span-2 col-span-1'>
-          <Card className='pb-4'>
+          <Card className='pb-[19px]'>
             <CardHeader>
               <CardTitle>Trending Categories</CardTitle>
               <CardDescription>Latest trending cryptocurrency categories in the last 24H</CardDescription>
