@@ -32,7 +32,7 @@ const Preview = () => {
         </Card>
         <div>
             <Link href="/market">
-                <Button>Show More</Button>
+                <Button className='bg-blue-400 hover:bg-blue-500'>Show More</Button>
             </Link>
         </div>
         
