@@ -105,7 +105,6 @@ function PaginationSection({
         </PaginationItem>
       ));
   
-      // Add ellipsis at the start if necessary
       if (activePages[0] > 1) {
         renderedPages.unshift(
           <PaginationEllipsis
@@ -115,7 +114,6 @@ function PaginationSection({
         );
       }
   
-      // Add ellipsis at the end if necessary
       if (activePages[activePages.length - 1] < pageNumbers.length) {
         renderedPages.push(
           <PaginationEllipsis

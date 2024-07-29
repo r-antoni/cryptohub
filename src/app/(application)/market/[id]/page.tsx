@@ -21,7 +21,7 @@ const CryptoDetail = () => {
 
   if(!store.data) return <></>
   return (
-    <div className="xl:px-20 py-10">
+    <main className="xl:px-20 py-10">
       <section className="flex justify-between">
         <div className="flex items-center gap-5 px-5 xl:px-10">
             <div className="flex items-center gap-3 text-xl font-medium">
@@ -139,7 +139,7 @@ const CryptoDetail = () => {
             <p className="py-5 indent-10 [&>a]:text-blue-400 [&>a]:underline" dangerouslySetInnerHTML={{ __html: store.data.description.en}}></p>
           </div>
         </section>
-    </div>
+    </main>
   )
 }
 
