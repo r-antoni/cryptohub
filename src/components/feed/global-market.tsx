@@ -56,8 +56,8 @@ const GlobalMarket = () => {
             </div>
         </div>) : (
             <div className="grid grid-cols-2 gap-20">
-                <Skeleton className="w-[40vw] h-[20vh]" />
-                <Skeleton className="w-[40vw] h-[20vh]" />
+                <Skeleton className="w-[30vw] h-[15vh]" />
+                <Skeleton className="w-[30vw] h-[15vh]" />
             </div>
         )}        
         {/* Global Defi Data */}
@@ -79,7 +79,7 @@ const GlobalMarket = () => {
             </Tabs>
         </div>) : (
             <>
-                <Skeleton className="w-[60%] h-[10vh]" />
+                <Skeleton className="w-[40] h-[10vh]" />
             </>
         )}
         
