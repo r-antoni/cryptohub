@@ -8,7 +8,7 @@ import { Separator } from '../ui/separator'
 const Coin = ({coin}:any) => {
   return (
     <Link href={`/market/${coin.id}`}>
-      <div className='grid grid-cols-7 py-3 items-center gap-5'>
+      <div className='grid grid-cols-7 py-3 items-center gap-5 h-14'>
         <div className='flex items-center gap-3'>
           <span className='w-8 text-sm'>{coin.rank}.</span>
           <Image className='rounded-full' src={coin.image} alt={coin.name} width={30} height={30} />

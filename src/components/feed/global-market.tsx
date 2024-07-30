@@ -79,7 +79,7 @@ const GlobalMarket = () => {
             </Tabs>
         </div>) : (
             <>
-                <Skeleton className="w-[40] h-[10vh]" />
+                <Skeleton className="w-[40vh] h-[10vh]" />
             </>
         )}
         
