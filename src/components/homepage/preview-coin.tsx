@@ -13,8 +13,8 @@ const PreviewCoin = ({coin}:any) => {
           <Image className='rounded-full' src={coin.image} alt={coin.name} width={30} height={30} />
           <p className='truncate max-w-32'>{coin.name}</p>
         </div>
-        <p className={coin.change > 0 ? "text-green-400 pl-[7px]" : "text-red-400"}>{percentageFormat(coin.change)}</p>
         <p>{currencyFormat(coin.price)}</p>
+        <p className={coin.change > 0 ? "text-green-400 pl-[7px]" : "text-red-400"}>{percentageFormat(coin.change)}</p>
         <p>{numberFormat(coin.mcap)}</p>
         <p>{numberFormat(coin.volume)}</p>
       </div>

@@ -6,10 +6,9 @@ import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-center gap-10 px-10 py-10">
+    <main className="flex flex-col items-center justify-center gap-20 px-10 py-10">
         <Hero />
         <Preview />
-        <Separator />
         <Buy />
         <Newsletter />
     </main>
