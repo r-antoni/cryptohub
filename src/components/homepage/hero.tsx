@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <section className='flex flex-col items-center justify-center gap-10'>
       <div className='flex flex-col items-center justify-center gap-5'>
-        <h1 className='text-4xl'>
+        <h1 className='text-4xl font-semibold'>
           All-In-One Crypto Tracker For Managing Your Crypto, DeFi & NFT Assets
         </h1>
         <p>

@@ -16,7 +16,7 @@ const Preview = () => {
   return (
     <section className='flex flex-col items-center justify-center w-[50%] gap-5'>
         <div className='flex flex-col items-center justify-center'>
-            <h2 className='text-2xl'>Get the most comprehensive data in realtime</h2>
+            <h2 className='text-2xl font-semibold'>Get the most comprehensive data in realtime</h2>
             <p>Research, track, and manage any coin and more.</p>
         </div>
         <Card>
