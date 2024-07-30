@@ -4,7 +4,7 @@ type Props = {}
 
 const Swap = (props: Props) => {
   return (
-    <div className='h-[50vh]'>Coming soon</div>
+    <div className='flex items-center justify-center h-[50vh]'>Coming soon</div>
   )
 }
 

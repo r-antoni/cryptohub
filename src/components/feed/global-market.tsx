@@ -12,6 +12,7 @@ import {
 import { currencyFormat } from "@/lib/utils/currency"
 import { percentageFormat } from "@/lib/utils/percentage"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Skeleton } from "../ui/skeleton"
 
 
 
@@ -23,8 +24,8 @@ const GlobalMarket = () => {
     return (
     <section className="flex flex-col justify-center items-center gap-10 pb-5">
         {/* Global Market Data */}
-        {store.global && 
-        <div className="grid grid-cols-2 gap-20">    
+        {store.global ?
+        (<div className="grid grid-cols-2 gap-20">    
             <div>
                 <Card>
                     <CardHeader>
@@ -53,11 +54,15 @@ const GlobalMarket = () => {
                     </CardContent>
                 </Card>
             </div>
-        </div>
-        }        
+        </div>) : (
+            <div className="grid grid-cols-2 gap-20">
+                <Skeleton className="w-[40vw] h-[20vh]" />
+                <Skeleton className="w-[40vw] h-[20vh]" />
+            </div>
+        )}        
         {/* Global Defi Data */}
-        {store.defi && 
-        <div className="">
+        {store.defi ? 
+        (<div>
             <Tabs defaultValue="defi" className="flex flex-col items-center justify-center bg-slate-200 pb-2 rounded-lg">
             <TabsList>
                 <TabsTrigger value="defi">De-Fi Total Market Cap</TabsTrigger>
@@ -72,7 +77,11 @@ const GlobalMarket = () => {
             <TabsContent value="btcd">{percentageFormat(store.global?.btc_d)}</TabsContent>
             <TabsContent value="ethd">{percentageFormat(store.global?.eth_d)}</TabsContent>
             </Tabs>
-        </div>}
+        </div>) : (
+            <>
+                <Skeleton className="w-[60%] h-[10vh]" />
+            </>
+        )}
         
     </section>
   )
