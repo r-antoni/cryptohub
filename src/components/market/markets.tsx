@@ -58,7 +58,7 @@ const Markets = () => {
         </>
       ) : (
         <>
-          <Skeleton className="w-[80vw] h-[100vh]" />
+          <Skeleton className="w-[90%] h-[100vh]" />
         </>
       )}
         
